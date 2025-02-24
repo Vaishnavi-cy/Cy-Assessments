@@ -23,3 +23,13 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add("login", (email, password) => {
+    cy.visit("https://cetestsystem.tooljet.com");
+        cy.contains("Sign in", { timeout: 30000 }).should("be.visible");
+        cy.url().should("include", "login");
+  cy.get('[data-cy="email-input"]').type(email);
+  cy.get('[data-cy="password-input"]').type(password);
+  cy.get('[data-cy="sign-in-button"]').should("be.visible").click();
+  cy.url().should("include", "my-workspace");
+  cy.contains("Applications").should("be.visible");
+});

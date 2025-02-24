@@ -6,6 +6,6 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     specPattern: 'cypress/e2e/**/*.js',
-    baseUrl: 'Set your base URL',
+    baseUrl: 'https://cetestsystem.tooljet.com',
   },
 });
